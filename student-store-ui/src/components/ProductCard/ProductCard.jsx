@@ -1,14 +1,18 @@
-import { Link } from "react-router-dom"
-import codepath from "../../assets/codepath.svg"
-import { formatPrice } from "../../utils/format"
-import "./ProductCard.css"
+import { Link } from "react-router-dom";
+import codepath from "../../assets/codepath.svg";
+import { formatPrice } from "../../utils/format";
+import "./ProductCard.css";
 
 function ProductCard({ product, quantity, addToCart, removeFromCart }) {
   return (
     <div className="ProductCard">
       <div className="media">
-        <Link to={`/${product.id}`}>
-          {product.image_url ? <img src={product.image_url} alt="product cover" /> : <img src={codepath} alt="product cover" />}
+        <Link to={`/${product.productId}`}>
+          {product.imageUrl ? (
+            <img src={product.imageUrl} alt="product cover" />
+          ) : (
+            <img src={codepath} alt="product cover" />
+          )}
         </Link>
       </div>
       <div className="product-info">
@@ -34,7 +38,7 @@ function ProductCard({ product, quantity, addToCart, removeFromCart }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default  ProductCard;
+export default ProductCard;

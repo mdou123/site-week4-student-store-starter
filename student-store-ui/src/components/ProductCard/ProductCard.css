@@ -3,8 +3,14 @@
   width: 250px;
   background: var(--pure-white);
   display: flex;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   flex-direction: column;
+  border-radius: 4px;
   border: solid 1px var(--border-color);
+}
+.ProductCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 0px 0px rgba(0, 0, 0, 0.1);
 }
 .ProductCard .media {
   height: 250px;

@@ -14,7 +14,7 @@ function ProductGrid({ addToCart, removeFromCart, getQuantityOfItemInCart, produ
             </div>
           ) : products.map((product) => (
             <ProductCard
-              key={product.id}
+              key={product.productId}
               product={product}
               quantity={getQuantityOfItemInCart(product)}
               addToCart={() => addToCart(product)}

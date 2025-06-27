@@ -54,7 +54,7 @@ export default function PaymentInfo({ userInfo, setUserInfo, handleOnCheckout, i
 
       <div className="field">
         <div className="control">
-          <button className="button" disabled={isCheckingOut} onClick={handleOnCheckout}>
+          <button className="button"type ="button" onClick={() => { console.log("Clicked!"); handleOnCheckout(); }} >
             Submit
           </button>
         </div>

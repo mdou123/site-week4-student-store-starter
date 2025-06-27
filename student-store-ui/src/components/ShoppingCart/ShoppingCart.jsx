@@ -1,30 +1,36 @@
 import PaymentInfo from "../PaymentInfo/PaymentInfo";
 import CheckoutSuccess from "../CheckoutSuccess/CheckoutSuccess";
-import { calculateTaxesAndFees, calculateTotal } from "../../utils/calculations";
+import {
+  calculateTaxesAndFees,
+  calculateTotal,
+} from "../../utils/calculations";
 import { formatPrice } from "../../utils/format";
 import "./ShoppingCart.css";
 
-
 const CartTable = ({ products, cart }) => {
   const productMapping = products.reduce((acc, item) => {
-    acc[item.id] = item; 
+    acc[item.id] = item;
     return acc;
   }, {});
 
-  const productRows = Object.keys(cart).map((productId) => {
-    const product = productMapping[productId];
+  const productRows = Object.keys(cart)
+    .map((productId) => {
+      const product = productMapping[productId];
 
-    if (!product) {
-      console.error(`Product with ID ${productId} not found in products array.`);
-      return null;
-    }
+      if (!product) {
+        console.error(
+          `Product with ID ${productId} not found in products array.`
+        );
+        return null;
+      }
 
-    return {
-      ...product,
-      quantity: cart[productId],
-      totalPrice: cart[productId] * product.price,
-    };
-  }).filter(row => row !== null); // Filter out any null values
+      return {
+        ...product,
+        quantity: cart[productId],
+        totalPrice: cart[productId] * product.price,
+      };
+    })
+    .filter((row) => row !== null); // Filter out any null values
 
   const subTotal = productRows.reduce((acc, p) => acc + p.totalPrice, 0);
 
@@ -40,7 +46,7 @@ const CartTable = ({ products, cart }) => {
           </div>
 
           {productRows.map((product) => (
-            <div key={product.id} className="product-row">
+            <div key={product.productId} className="product-row">
               <span className="flex-2">{product.name}</span>
               <span className="center">{product.quantity}</span>
               <span className="center">{formatPrice(product.price)}</span>
@@ -60,13 +66,17 @@ const CartTable = ({ products, cart }) => {
             <span className="label">Taxes and Fees</span>
             <span />
             <span />
-            <span className="center">{formatPrice(calculateTaxesAndFees(subTotal))}</span>
+            <span className="center">
+              {formatPrice(calculateTaxesAndFees(subTotal))}
+            </span>
           </div>
           <div className="receipt-total">
             <span className="label">Total</span>
             <span />
             <span />
-            <span className="center">{formatPrice(calculateTotal(subTotal))}</span>
+            <span className="center">
+              {formatPrice(calculateTotal(subTotal))}
+            </span>
           </div>
         </div>
       </div>
@@ -91,7 +101,9 @@ const CartItems = ({ products, cart }) => {
         </>
       ) : (
         <>
-          <div className="notification">No items added to cart yet. Start shopping now!</div>
+          <div className="notification">
+            No items added to cart yet. Start shopping now!
+          </div>
         </>
       )}
     </>
@@ -123,11 +135,13 @@ export default function ShoppingCart({
             isCheckingOut={isCheckingOut}
             error={error}
           />
-          <CheckoutSuccess userInfo={userInfo} order={order} setOrder={setOrder} />
+          <CheckoutSuccess
+            userInfo={userInfo}
+            order={order}
+            setOrder={setOrder}
+          />
         </div>
-      ) : (
-        null
-      )}
+      ) : null}
     </div>
   );
 }
