@@ -99,6 +99,9 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
 
 `<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/2ccbb6014d494bc79ae838ec8c16af6c?sid=714ed62e-4918-4454-9fb8-12efad3a82e1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>`
 
+SECOND WALKTHROUGH VIDEO:
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/964e1e8ac7724c628bbd8f29571afbc3?sid=e2422474-b203-42ba-90eb-33cd80931156" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
 ### Reflection
 
 - Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
